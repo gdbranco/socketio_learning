@@ -64,7 +64,7 @@ io.sockets.on('connection', function (socket) {
         });
     },2000);
     setInterval(function () {
-        Page.find({}, function (error, all) {
+        Page.find({count: {$gt: 0}}, function (error, all) {
             socket.emit("dashboard-info", all);
         });
     },2000);
